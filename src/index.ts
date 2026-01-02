@@ -98,6 +98,7 @@ app.use(
                 `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/`,
                 "https://images.unsplash.com",
                 "https://api.maptiler.com/",
+                "https://cdn.maptiler.com/maptiler-geocoding-control/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
         },
