@@ -1,0 +1,50 @@
+{
+    "scripts": {
+        "build": "tsc",
+        "tsc": "tsc --project tsconfig.json",
+        "lint": "eslint '**/*.{ts,js}'",
+        "lint-fix": "eslint --fix '**/*.{ts,js}'",
+        "start": "cross-env NODE_ENV=production npx tsx src/index.ts",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "npx tsx watch --clear-screen=false src/index.ts"
+    },
+    "dependencies": {
+        "@maptiler/client": "^2.6.0",
+        "cloudinary": "^2.8.0",
+        "connect-mongo": "^6.0.0",
+        "dotenv": "^17.2.3",
+        "ejs": "^3.1.10",
+        "ejs-mate": "^4.0.0",
+        "express": "^5.2.1",
+        "express-flash": "^0.0.2",
+        "express-session": "^1.18.2",
+        "helmet": "^8.1.0",
+        "joi": "^18.0.2",
+        "method-override": "^3.0.0",
+        "mongodb": "^7.0.0",
+        "mongoose": "^9.0.2",
+        "multer": "^2.0.2",
+        "passport": "^0.7.0",
+        "passport-local": "^1.0.0",
+        "passport-local-mongoose": "^9.0.1",
+        "sanitize-html": "^2.17.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.39.2",
+        "@types/express": "^5.0.6",
+        "@types/express-flash": "^0.0.5",
+        "@types/express-session": "^1.18.2",
+        "@types/method-override": "^3.0.0",
+        "@types/multer": "^2.0.0",
+        "@types/passport": "^1.0.17",
+        "@types/passport-local": "^1.0.38",
+        "@types/sanitize-html": "^2.16.0",
+        "cross-env": "^10.1.0",
+        "eslint": "^9.39.2",
+        "globals": "^16.5.0",
+        "jiti": "^2.6.1",
+        "prettier-plugin-ejs": "^1.0.3",
+        "ts-node": "^10.9.2",
+        "typescript-eslint": "^8.50.0"
+    }
+}

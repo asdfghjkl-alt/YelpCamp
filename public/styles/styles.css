@@ -1,0 +1,122 @@
+main {
+    margin-top: 30px;
+}
+
+.all-container {
+    width: 100%;
+}
+
+.star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse; /* Allows hover effects to work backwards */
+    gap: 2px;
+}
+
+.star-rating input {
+    display: none; /* Hide the actual radio buttons */
+}
+
+.star-rating label {
+    font-size: 2rem;
+    color: #ccc; /* Gray by default */
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+/* Color the star when hovered, and all stars to its right (visually left) */
+/* Selector of ~ makes all siblings after it to be affected */
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffc107; /* Gold color */
+}
+
+/* Keep the stars colored after selection */
+.star-rating input:checked ~ label {
+    color: #ffc107;
+}
+
+/* Highlight stars on hover even when one is already checked */
+.star-rating label:hover ~ label {
+    color: #ffc107;
+}
+
+.star-display::before {
+    content: "★★★★★";
+    background: linear-gradient(
+        90deg,
+        #ffc107 calc(var(--rating) / 5 * 100%),
+        #ccc calc(var(--rating) / 5 * 100%)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
+}
+
+.navbar-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.display-name {
+    color: white;
+}
+
+.file-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #eee;
+}
+.file-name {
+    flex: 1;
+    color: #444;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.file-size {
+    margin-left: 10px;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+.icon {
+    display: inline-block;
+    font-size: 1.2em;
+    line-height: 1;
+    margin-left: 10px;
+}
+.icon.success {
+    color: green;
+}
+.icon.remove {
+    color: red;
+    cursor: pointer;
+}
+
+#map {
+    width: 100%;
+    height: 600px;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+.nav-link {
+    padding: 0.25rem 0;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 1rem;
+    border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+.nav-link.active {
+    color: white;
+    border-bottom-color: white;
+}

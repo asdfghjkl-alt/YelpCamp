@@ -1,0 +1,49 @@
+<% layout("layouts/boilerplate") %>
+<h1>All Campgrounds</h1>
+<div id="map"></div>
+<div class="row">
+    <span id="store-features" data-value="<%= JSON.stringify(campgrounds.map(c => ({
+            type: "Feature",
+            geometry: {
+                type: 'Point',
+                coordinates: [c.location.lng, c.location.lat]
+            },
+            properties: {
+                popUpMarkup: c.properties.popUpMarkup
+            }
+        }))) %>">
+    </span>
+    <% for (const campground of campgrounds) { %>
+    <!-- col-md-4 forces exactly 3 elements per row if enough space -->
+    <div class="col-md-4 col-lg-3 col-sm-6 mb-4">
+        <div class="card">
+            <img
+                src="<%= campground.images[0] ? campground.images[0].display : '' %>"
+                class="card-img-top"
+                alt="<%= campground.title %>"
+            />
+            <div class="card-body">
+                <h5 class="card-title"><%= campground.title %></h5>
+                <p>Price: $<%= campground.price %></p>
+                <p class="text-muted"><%= campground.location.name %></p>
+                <a
+                    href="/campgrounds/<%= campground._id %>"
+                    class="btn btn-primary"
+                    >View</a
+                >
+            </div>
+        </div>
+    </div>
+    <% } %>
+</div>
+
+<script>
+    const maptilerApiKey = "<%- process.env.MAPTILER_API_KEY %>";
+    const campgrounds = {
+        type: "FeatureCollection",
+        features: JSON.parse(document.getElementById("store-features").dataset.value)
+    };
+</script>
+<% block('scripts').append(`
+<script src="/js/clusterMap.js"></script>
+`) %>

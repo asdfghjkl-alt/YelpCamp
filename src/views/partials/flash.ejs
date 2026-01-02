@@ -1,0 +1,7 @@
+<% if (messages.success) { for (const message of messages.success) { %>
+<%- include("./alert", {message, type: "success"}) %>
+<% }} %>
+<% if (messages.error) { 
+        for (const message of messages.error) { %>
+<%- include("./alert", {message, type: "danger"}) %>
+<% }} %>

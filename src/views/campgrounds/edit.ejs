@@ -1,0 +1,110 @@
+<% layout("layouts/boilerplate") %>
+<h1>Edit Campground</h1>
+<form
+    action="/campgrounds/<%=campground._id %>?_method=PUT"
+    method="POST"
+    class="validated-form"
+    id="campgroundForm"
+    enctype="multipart/form-data"
+    novalidate
+    data-existing-size="<%= totalImageSize %>"
+    data-existing-length="<%= totalImageNo %>"
+>
+    <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+            class="form-control"
+            type="text"
+            required
+            name="title"
+            value="<%= campground.title %>"
+        />
+        <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <div id="map" class="mt-6"></div>
+        <input
+            class="form-control"
+            type="text"
+            required
+            name="location[name]"
+            value="<%= campground.location.name %>"
+            id="location"
+            placeholder="Location Name"
+        />
+        <input
+            class="form-control"
+            type="hidden"
+            required
+            name="location[lat]"
+            id="lat"
+            value="<%= campground.location.lat %>"
+        />
+        <input
+            class="form-control"
+            type="hidden"
+            required
+            name="location[lng]"
+            id="lng"
+            value="<%= campground.location.lng %>"
+        />
+        <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="price">Campground Price</label>
+        <div class="input-group">
+            <span class="input-group-text" id="price-label">$</span>
+            <input
+                class="form-control"
+                step="0.01"
+                min="0"
+                type="number"
+                name="price"
+                placeholder="0.00"
+                id="price"
+                aria-describedby="price-label"
+                value="<%= campground.price %>"
+                required
+            />
+            <div class="valid-feedback">Looks good!</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea class="form-control" type="text" name="description" required>
+<%= campground.description %></textarea
+        >
+        <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="images"
+            >Images (Total upload size: <span id="totalSize"></span>MB, No
+            images uploaded: <span id="totalNoImg"></span>)</label
+        >
+        <input
+            class="form-control"
+            type="file"
+            name="images"
+            multiple="true"
+            id="images"
+            accept="image/png, image/jpeg, image/jpg, image/webp"
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <p id="errorMsg" style="color: red"></p>
+    </div>
+    <div class="mb-3">
+        <div id="file-list"></div>
+    </div>
+    <button class="btn btn-primary" type="submit">Update Campground</button>
+</form>
+<a href="/campgrounds/<%= campground._id %>">Back to Campground</a>
+<script>
+    const maptilerApiKey = "<%= process.env.MAPTILER_API_KEY %>";
+</script>
+<% block('scripts').append(`
+<script src="/js/validateForms.js"></script>
+<script src="/js/imageSelector.js"></script>
+<script src="/js/locationSearch.js"></script>
+`) %>
