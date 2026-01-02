@@ -117,11 +117,10 @@ const sessionConfig = {
     name: "session",
     secret: process.env.SECRET as string,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 1,
         secure: process.env.NODE_ENV === "production",
-        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 1),
     },
 };
 app.use(session(sessionConfig));
