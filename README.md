@@ -1,0 +1,1 @@
+This project is a slight upgrade from the project YelpCamp on Colt's web development course. The added features are the upgrade to TypeScript, adding verification on the sizes of images, customising the image deletion feature and allowing a better experience of selecting location via pin drop or search bar.
