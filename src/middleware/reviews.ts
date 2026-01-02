@@ -7,7 +7,9 @@ const validateReview = (req: Request, res: Response, next: NextFunction) => {
     const result = reviewSchema.validate(req.body, { abortEarly: false });
 
     if (result.error) {
-        const msg = result.error.details.map((el) => el.message).join(", ");
+        const msg = result.error.details
+            .map((el: Error) => el.message)
+            .join(", ");
         throw new ExpressError(msg, 400);
     }
 

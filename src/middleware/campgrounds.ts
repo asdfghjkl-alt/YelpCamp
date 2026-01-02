@@ -46,7 +46,9 @@ const validateCampground = (
     const result = campgroundSchema.validate(req.body, { abortEarly: false });
 
     if (result.error) {
-        const msg = result.error.details.map((el) => el.message).join(", ");
+        const msg = result.error.details
+            .map((el: Error) => el.message)
+            .join(", ");
         throw new ExpressError(msg, 400);
     }
 
@@ -61,7 +63,9 @@ const validateDeleteImages = async (
     const result = deleteImagesSchema.validate(req.body, { abortEarly: false });
 
     if (result.error) {
-        const msg = result.error.details.map((el) => el.message).join(", ");
+        const msg = result.error.details
+            .map((el: Error) => el.message)
+            .join(", ");
         throw new ExpressError(msg, 400);
     }
 

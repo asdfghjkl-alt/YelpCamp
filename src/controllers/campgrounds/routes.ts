@@ -57,7 +57,7 @@ const addCampground = async (req: Request, res: Response) => {
 };
 
 const editCampground = async (req: Request, res: Response) => {
-    const { title, location, price, description, image } = req.body;
+    const { title, location, price, description } = req.body;
     const id = req.params.id;
 
     if (!req.files) {

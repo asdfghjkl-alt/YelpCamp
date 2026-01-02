@@ -7,6 +7,4 @@ const map = new maptilersdk.Map({
     zoom: 14, // starting zoom
 });
 
-const marker = new maptilersdk.Marker()
-    .setLngLat([initLng, initLat])
-    .addTo(map);
+new maptilersdk.Marker().setLngLat([initLng, initLat]).addTo(map);

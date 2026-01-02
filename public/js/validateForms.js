@@ -3,7 +3,6 @@
     "use strict";
 
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    // eslint-disable-next-line
     const forms = document.querySelectorAll(".validated-form");
 
     // Loop over them and prevent submission

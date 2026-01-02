@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "build": "tsc",
+        "build": "tsc; npm run lint",
         "tsc": "tsc --project tsconfig.json",
         "lint": "eslint '**/*.{ts,js}'",
         "lint-fix": "eslint --fix '**/*.{ts,js}'",
